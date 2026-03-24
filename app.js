@@ -5,17 +5,17 @@ const musicData = [
         artist: "Unknown Artist",
         category: "romantic",
         duration: "3:40",
-        albumArt: "https://Haniqayoum.github.io/hindi-music-player/images/Heer-Ranjha.jpg",
-        audio: "https://Haniqayoum.github.io/hindi-music-player/songs/heerranjha.mp3"
+        albumArt: "https://Haniqayoum.github.io/Music-Player/images/Heer-Ranjha.jpg",
+        audio: "https://Haniqayoum.github.io/Music-Player/songs/heerranjha.mp3"
     },
     {
         id: 2,
-        title: "Hum Kya karein Pyar Ka bayan",
+        title: "Hum Kya Karein Pyar Ka Bayan",
         artist: "Unknown Artist",
         category: "romantic",
         duration: "4:05",
-        albumArt: "https://Haniqayoum.github.io/hindi-music-player/images/humkiakrynpyarkabayan.jpg",
-        audio: "https://Haniqayoum.github.io/hindi-music-player/songs/hmkrympyarkabayan.mp3"
+        albumArt: "https://Haniqayoum.github.io/Music-Player/images/humkiakrynpyarkabayan.jpg",
+        audio: "https://Haniqayoum.github.io/Music-Player/songs/hmkrynpyarkabayan.mp3"
     },
     {
         id: 3,
@@ -23,8 +23,8 @@ const musicData = [
         artist: "Unknown Artist",
         category: "romantic",
         duration: "4:00",
-        albumArt: "https://Haniqayoum.github.io/hindi-music-player/images/terahirothna.jpg",
-        audio: "https://Haniqayoum.github.io/hindi-music-player/songs/teraroothna.mp3"
+        albumArt: "https://Haniqayoum.github.io/Music-Player/images/terahirothna.jpg",
+        audio: "https://Haniqayoum.github.io/Music-Player/songs/teraroothna.mp3"
     },
     {
         id: 4,
@@ -32,8 +32,8 @@ const musicData = [
         artist: "Unknown Artist",
         category: "romantic",
         duration: "3:50",
-        albumArt: "https://Haniqayoum.github.io/hindi-music-player/images/terahisaya.jpg",
-        audio: "https://Haniqayoum.github.io/hindi-music-player/songs/terahisaya.mp3"
+        albumArt: "https://Haniqayoum.github.io/Music-Player/images/terahisaya.jpg",
+        audio: "https://Haniqayoum.github.io/Music-Player/songs/terahisaya.mp3"
     },
     {
         id: 5,
@@ -41,17 +41,17 @@ const musicData = [
         artist: "Unknown Artist",
         category: "romantic",
         duration: "3:55",
-        albumArt: "https://Haniqayoum.github.io/hindi-music-player/images/terikashish.jpg",
-        audio: "https://Haniqayoum.github.io/hindi-music-player/songs/terikashish.mp3"
+        albumArt: "https://Haniqayoum.github.io/Music-Player/images/terikashish.jpg",
+        audio: "https://Haniqayoum.github.io/Music-Player/songs/terikashish.mp3"
     },
     {
         id: 6,
-        title: "Tu hai Tw",
+        title: "Tu Hai Tu",
         artist: "Unknown Artist",
         category: "romantic",
         duration: "4:10",
-        albumArt: "https://Haniqayoum.github.io/hindi-music-player/images/tutohai.jfif",
-        audio: "https://Haniqayoum.github.io/hindi-music-player/songs/tuhaitw.mp3"
+        albumArt: "https://Haniqayoum.github.io/Music-Player/images/tutohai.jfif",
+        audio: "https://Haniqayoum.github.io/Music-Player/songs/tuhaitw.mp3"
     }
 ];
 
