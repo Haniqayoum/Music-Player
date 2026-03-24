@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       <div class="container">
+        <div class="header">
+            <h1>🎵 Music Player Pro</h1>
+        </div>
+
+        <div class="main-content">
+            <div class="player-section">
+                <div class="player-controls">
+                    <img id="albumArt" class="album-art" src="" alt="Album Art">
+                    
+                    <div class="control-buttons">
+                        <button class="btn" id="prevBtn">⏮</button>
+                        <button class="btn play-pause" id="playPauseBtn">▶</button>
+                        <button class="btn" id="nextBtn">⏭</button>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="volume-container">
+                        <span>🔊</span>
+                        <div class="volume-bar" id="volumeBar">
+                            <div class="volume-fill" id="volumeFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="now-playing">
+                    <div class="song-title" id="songTitle">Select a song</div>
+                    <div class="song-artist" id="songArtist">No song selected</div>
+                </div>
+            </div>
+
+            <div class="playlist-section">
+                <div class="search-container">
+                    <input type="text" class="search-box" id="searchInput" placeholder="Search songs, artists...">
+                </div>
+
+                <div class="category-tabs">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="pop">Pop</button>
+                    <button class="category-btn" data-category="rock">Rock</button>
+                    <button class="category-btn" data-category="hiphop">Hip-Hop</button>
+                    <button class="category-btn" data-category="electronic">Electronic</button>
+                </div>
+
+                <ul class="playlist" id="playlist"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
