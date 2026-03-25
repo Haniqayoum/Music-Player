@@ -1,167 +1,116 @@
-const musicData = [
-    {
-        id: 1,
-        title: "Heer Ranjha",
-        artist: "Unknown Artist",
-        category: "romantic",
-        duration: "3:40",
-        albumArt: "https://Haniqayoum.github.io/Music-Player/images/Heer-Ranjha.jpg",
-        audio: "https://Haniqayoum.github.io/Music-Player/songs/heerranjha.mp3"
-    },
-    {
-        id: 2,
-        title: "Hum Kya Karein Pyar Ka Bayan",
-        artist: "Unknown Artist",
-        category: "romantic",
-        duration: "4:05",
-        albumArt: "https://Haniqayoum.github.io/Music-Player/images/humkiakrynpyarkabayan.jpg",
-        audio: "https://Haniqayoum.github.io/Music-Player/songs/hmkrynpyarkabayan.mp3"
-    },
-    {
-        id: 3,
-        title: "Tera Roothna",
-        artist: "Unknown Artist",
-        category: "romantic",
-        duration: "4:00",
-        albumArt: "https://Haniqayoum.github.io/Music-Player/images/terahirothna.jpg",
-        audio: "https://Haniqayoum.github.io/Music-Player/songs/teraroothna.mp3"
-    },
-    {
-        id: 4,
-        title: "Tera Hi Saya",
-        artist: "Unknown Artist",
-        category: "romantic",
-        duration: "3:50",
-        albumArt: "https://Haniqayoum.github.io/Music-Player/images/terahisaya.jpg",
-        audio: "https://Haniqayoum.github.io/Music-Player/songs/terahisaya.mp3"
-    },
-    {
-        id: 5,
-        title: "Teri Kashish",
-        artist: "Unknown Artist",
-        category: "romantic",
-        duration: "3:55",
-        albumArt: "https://Haniqayoum.github.io/Music-Player/images/terikashish.jpg",
-        audio: "https://Haniqayoum.github.io/Music-Player/songs/terikashish.mp3"
-    },
-    {
-        id: 6,
-        title: "Tu Hai Tu",
-        artist: "Unknown Artist",
-        category: "romantic",
-        duration: "4:10",
-        albumArt: "https://Haniqayoum.github.io/Music-Player/images/tutohai.jfif",
-        audio: "https://Haniqayoum.github.io/Music-Player/songs/tuhaitw.mp3"
-    }
-];
+const musicData = [{ id: 1, title: "Heer Ranjha", artist: "Unknown Artist", category: "romantic", duration: "3:40", albumArt: "Images/Heer-Ranjha.jpg", audio: "songs/heerranjha.mp3" },
+     { id: 2, title: "Hum Kya karein Pyar Ka bayan", artist: "Unknown Artist", category: "romantic", duration: "4:05", albumArt: "images/humkiakrynpyarkabayan.jpg", audio: "songs/hmkrympyarkabayan.mp3" }, 
+     { id: 3, title: "Tera Roothna", artist: "Unknown Artist", category: "romantic", duration: "4:00", albumArt: "images/terahirothna.jpg", audio: "songs/teraroothna.mp3" }, 
+     { id: 4, title: "Tera Hi Saya", artist: "Unknown Artist", category: "romantic", duration: "3:50", albumArt: "images/terahisaya.jpg", audio: "songs/terahisaya.mp3" },
+      { id: 5, title: "Teri Kashish", artist: "Unknown Artist", category: "romantic", duration: "3:55", albumArt: "images/terikashish.jpg", audio: "songs/terikashish.mp3" },
+      { id: 6, title: "Tu hai Tw", artist: "Unknown Artist", category: "romantic", duration: "4:10", albumArt: "images/tutohai.jfif", audio: "songs/tuhaitw.mp3" }];
 
-        let currentSongIndex = 0;
-        let isPlaying = false;
-        let audio = new Audio();
-        let currentPlaylist = [...musicData];
+let currentSongIndex = 0;
+let isPlaying = false;
+let audio = new Audio();
+let currentPlaylist = [...musicData];
 
-        // DOM Elements
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const progressBar = document.getElementById('progressBar');
-        const progress = document.getElementById('progress');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
-        const albumArt = document.getElementById('albumArt');
-        const songTitle = document.getElementById('songTitle');
-        const songArtist = document.getElementById('songArtist');
-        const volumeBar = document.getElementById('volumeBar');
-        const volumeFill = document.getElementById('volumeFill');
-        const searchInput = document.getElementById('searchInput');
-        const playlistEl = document.getElementById('playlist');
-        const categoryBtns = document.querySelectorAll('.category-btn');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const progressBar = document.getElementById('progressBar');
+const progress = document.getElementById('progress');
+const currentTimeEl = document.getElementById('currentTime');
+const durationEl = document.getElementById('duration');
+const albumArt = document.getElementById('albumArt');
+const songTitle = document.getElementById('songTitle');
+const songArtist = document.getElementById('songArtist');
+const volumeBar = document.getElementById('volumeBar');
+const volumeFill = document.getElementById('volumeFill');
+const searchInput = document.getElementById('searchInput');
+const playlistEl = document.getElementById('playlist');
+const categoryBtns = document.querySelectorAll('.category-btn');
 
-        // Initialize
-        function init() {
-            renderPlaylist();
-            setupEventListeners();
-            audio.volume = 0.7;
-            updateVolumeUI();
-        }
 
-        function setupEventListeners() {
-            playPauseBtn.addEventListener('click', togglePlayPause);
-            prevBtn.addEventListener('click', prevSong);
-            nextBtn.addEventListener('click', nextSong);
-            progressBar.addEventListener('click', setProgress);
-            volumeBar.addEventListener('click', setVolume);
-            searchInput.addEventListener('input', handleSearch);
-            categoryBtns.forEach(btn => btn.addEventListener('click', handleCategoryFilter));
-            audio.addEventListener('timeupdate', updateProgress);
-            audio.addEventListener('loadedmetadata', updateDuration);
-            audio.addEventListener('ended', nextSong);
-            audio.addEventListener('error', handleAudioError);
-        }
+function init() {
+    renderPlaylist();
+    setupEventListeners();
+    audio.volume = 0.7;
+    updateVolumeUI();
+}
 
-        function renderPlaylist(filteredData = currentPlaylist) {
-            playlistEl.innerHTML = '';
-            filteredData.forEach((song, index) => {
-                const li = document.createElement('li');
-                li.className = 'playlist-item';
-                li.innerHTML = `
+function setupEventListeners() {
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    prevBtn.addEventListener('click', prevSong);
+    nextBtn.addEventListener('click', nextSong);
+    progressBar.addEventListener('click', setProgress);
+    volumeBar.addEventListener('click', setVolume);
+    searchInput.addEventListener('input', handleSearch);
+    categoryBtns.forEach(btn => btn.addEventListener('click', handleCategoryFilter));
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('ended', nextSong);
+    audio.addEventListener('error', handleAudioError);
+}
+
+function renderPlaylist(filteredData = currentPlaylist) {
+    playlistEl.innerHTML = '';
+    filteredData.forEach((song, index) => {
+        const li = document.createElement('li');
+        li.className = 'playlist-item';
+        li.innerHTML = `
                     <img src="${song.albumArt}" alt="${song.title}">
                     <div class="playlist-info">
                         <div class="playlist-title">${song.title}</div>
                         <div class="playlist-artist">${song.artist}</div>
                     </div>
                 `;
-                li.addEventListener('click', () => playSong(index));
-                playlistEl.appendChild(li);
-            });
-        }
+        li.addEventListener('click', () => playSong(index));
+        playlistEl.appendChild(li);
+    });
+}
 
-        function playSong(index) {
-            currentSongIndex = index;
-            const song = currentPlaylist[index];
-            
-            audio.src = song.audio;
-            songTitle.textContent = song.title;
-            songArtist.textContent = song.artist;
-            albumArt.src = song.albumArt;
-            
-            audio.play();
-            isPlaying = true;
-            playPauseBtn.textContent = '⏸';
-            albumArt.classList.add('rotating');
-            updateActivePlaylistItem();
-        }
+function playSong(index) {
+    currentSongIndex = index;
+    const song = currentPlaylist[index];
 
-        function togglePlayPause() {
-            if (isPlaying) {
-                audio.pause();
-                playPauseBtn.textContent = '▶';
-                albumArt.classList.remove('rotating');
-            } else {
-                audio.play();
-                playPauseBtn.textContent = '⏸';
-                albumArt.classList.add('rotating');
-            }
-            isPlaying = !isPlaying;
-        }
+    audio.src = song.audio;
+    songTitle.textContent = song.title;
+    songArtist.textContent = song.artist;
+    albumArt.src = song.albumArt;
 
-        function prevSong() {
-            currentSongIndex = (currentSongIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
-            playSong(currentSongIndex);
-        }
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.textContent = '⏸';
+    albumArt.classList.add('rotating');
+    updateActivePlaylistItem();
+}
 
-        function nextSong() {
-            currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
-            playSong(currentSongIndex);
-        }
+function togglePlayPause() {
+    if (isPlaying) {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+        albumArt.classList.remove('rotating');
+    } else {
+        audio.play();
+        playPauseBtn.textContent = '⏸';
+        albumArt.classList.add('rotating');
+    }
+    isPlaying = !isPlaying;
+}
 
-        function updateProgress() {
-            if (audio.duration) {
-                const progressPercent = (audio.currentTime / audio.duration) * 100;
-                progress.style.width = progressPercent + '%';
-                currentTimeEl.textContent = formatTime(audio.currentTime);
-            }
-        }
+function prevSong() {
+    currentSongIndex = (currentSongIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
+    playSong(currentSongIndex);
+}
+
+function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+    playSong(currentSongIndex);
+}
+
+function updateProgress() {
+    if (audio.duration) {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = progressPercent + '%';
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+}
 function updateDuration() {
     durationEl.textContent = formatTime(audio.duration);
 }
@@ -232,4 +181,4 @@ function updateActivePlaylistItem() {
 function handleAudioError() {
     alert("Audio load nahi ho raha. Internet ya link issue ho sakta hai.");
 }
-    init();
+init();
