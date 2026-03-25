@@ -1,9 +1,9 @@
 const musicData = [{ id: 1, title: "Heer Ranjha", artist: "Unknown Artist", category: "romantic", duration: "3:40", albumArt: "Images/Heer-Ranjha.jpg", audio: "songs/heerranjha.mp3" },
-     { id: 2, title: "Hum Kya karein Pyar Ka bayan", artist: "Unknown Artist", category: "romantic", duration: "4:05", albumArt: "images/humkiakrynpyarkabayan.jpg", audio: "songs/hmkrympyarkabayan.mp3" }, 
-     { id: 3, title: "Tera Roothna", artist: "Unknown Artist", category: "romantic", duration: "4:00", albumArt: "images/terahirothna.jpg", audio: "songs/teraroothna.mp3" }, 
-     { id: 4, title: "Tera Hi Saya", artist: "Unknown Artist", category: "romantic", duration: "3:50", albumArt: "images/terahisaya.jpg", audio: "songs/terahisaya.mp3" },
-      { id: 5, title: "Teri Kashish", artist: "Unknown Artist", category: "romantic", duration: "3:55", albumArt: "images/terikashish.jpg", audio: "songs/terikashish.mp3" },
-      { id: 6, title: "Tu hai Tw", artist: "Unknown Artist", category: "romantic", duration: "4:10", albumArt: "images/tutohai.jfif", audio: "songs/tuhaitw.mp3" }];
+     { id: 2, title: "Hum Kya karein Pyar Ka bayan", artist: "Unknown Artist", category: "romantic", duration: "4:05", albumArt: "Images/humkiakrynpyarkabayan.jpg", audio: "songs/hmkrympyarkabayan.mp3" }, 
+     { id: 3, title: "Tera Roothna", artist: "Unknown Artist", category: "romantic", duration: "4:00", albumArt: "Images/terahirothna.jpg", audio: "songs/teraroothna.mp3" }, 
+     { id: 4, title: "Tera Hi Saya", artist: "Unknown Artist", category: "romantic", duration: "3:50", albumArt: "Images/terahisaya.jpg", audio: "songs/terahisaya.mp3" },
+      { id: 5, title: "Teri Kashish", artist: "Unknown Artist", category: "romantic", duration: "3:55", albumArt: "Images/terikashish.jpg", audio: "songs/terikashish.mp3" },
+      { id: 6, title: "Tu hai Tw", artist: "Unknown Artist", category: "romantic", duration: "4:10", albumArt: "Images/tutohai.jfif", audio: "songs/tuhaitw.mp3" }];
 
 let currentSongIndex = 0;
 let isPlaying = false;
